@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import "./Home.css"
 import logo from '../../assets/images/Group.png'
@@ -18,6 +18,9 @@ import { FaSquareTwitter } from "react-icons/fa6";
 
 
 const Home = ()=>{
+
+    const [isClicked, setIsclicked] = useState(true);
+    console.log(isClicked);
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
@@ -49,9 +52,9 @@ const Home = ()=>{
                         <h1 className="name">MAYOWA OLANIYAN</h1> 
                         <p className="dev">MERN stack Developer</p>
                         <div className="socials">
-                            <a href="mailto:mayowafolaniyan@gmail.com" target="_blank"><IoIosMail class="imgg"/></a>
-                            <a href="https://github.com/Olamayorrh" target="_blank"><FaGithub class="imgg"/></a>
-                             <a href="https://www.linkedin.com/feed/?trk=nav_back_to_linkedin" target="_blank"><FaLinkedin class="imgg"/></a>
+                            <a href="mailto:mayowafolaniyan@gmail.com" target="_blank"><IoIosMail className="imgg"/></a>
+                            <a href="https://github.com/Olamayorrh" target="_blank"><FaGithub className="imgg"/></a>
+                             <a href="https://www.linkedin.com/feed/?trk=nav_back_to_linkedin" target="_blank"><FaLinkedin className="imgg"/></a>
                             
                          </div>
 
@@ -61,25 +64,38 @@ const Home = ()=>{
 
                         <div className="nav">
 
-                            <div className="harmbug" >
+                            {/* {
+                                isClicked? 
+                                
+                                <div className="harmbug" >
                                 <span className="line1 line"></span>
                                 <span className="line2 line"></span>
                                 <span className="line3 line"></span>
 
-                            </div>
+                                </div>:
+                                null
+                            } */}
 
-                            <div className="menus">
-                                <p className="menu"><a href='#abb' class="navLink">About me</a></p>
-                                <p className="menu"><a href='#ski' class="navLink">Skills</a></p>
-                                <p className="menu"><a href='#port' class="navLink">Portfolio</a></p>
-                                <p className="menu menuc"><a href='#contact' class="navLink">CONTACT ME</a></p>
-                            </div>   
+                              
+
+                            
+                            <button className='logo1'><img src={logo} alt="logo" id="logo1"></img></button>
+                            <div className={isClicked ? "menus" : "mobile"} onClick={()=>setIsclicked(true)}>
+                                <p className="menu"><a href='#abb' className="navLink">About me</a></p>
+                                <p className="menu"><a href='#ski' className="navLink">Skills</a></p>
+                                <p className="menu"><a href='#port' className="navLink">Portfolio</a></p>
+                                <p className="menu menuc"><a href='#contact' className="navLink">CONTACT ME</a></p>
+                            </div> 
+
+                            <button className='hamburger' onClick={()=>setIsclicked(!isClicked)}>
+                                {isClicked ? <img src='./images/menuOpen.png' className='Menu'></img> : <img src='./images/menuClose.png' className='Menu'></img>}
+                              </button>  
 
 
                         </div>
 
 
-                        <div class="pix">
+                        <div className="pix">
                              
                             <img src={image} alt="mypix" id="img1"></img>
                         
@@ -103,7 +119,7 @@ const Home = ()=>{
                     I thrive in the dynamic world of technology, where everyline of code presents an opportunity to solve a problem and make positive impact.
                 </p>
 
-                <div class="explore"> | Explore | </div>
+                <div className="explore"> | Explore | </div>
                 <img src={sepa} alt="separator" id="explore"></img>
 
             
@@ -226,7 +242,7 @@ const Home = ()=>{
                        <div> <input type="text" name="user_name" id="uname" placeholder="Enter your name" required></input></div>
                         <div><input type="text" name="user_email" id="umail" placeholder="Enter your email" required></input></div>
                         <div><input type="text" name="user_num" id="num"  placeholder="Enter your number" required></input></div>
-                        <div><textarea placeholder="Message" name="message" id="mssg" rows="15px" cols="40px" required></textarea></div>
+                        <div><textarea placeholder="Message" name="message" id="mssg" rows="40px" cols="40px" required></textarea></div>
                         <button type="submit" id="btn" value="Send">Send Message</button>
             
                     </form>
