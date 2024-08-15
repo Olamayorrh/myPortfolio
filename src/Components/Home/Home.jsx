@@ -220,6 +220,12 @@ const Home = ()=>{
                         <card><img src="./images/DisneyClone.png" className="crd"></img>  <div className="detail"><h3>Disney Clone</h3><p>Disney page cloned using REACT components</p><a href='https://disney-page-kohl.vercel.app/' className="lnk">View Project</a></div></card>
                         <card><img src="./images/calculator.png" className="crd"></img>  <div className="detail"><h3>Basic Calculator</h3><p>Calculator built with html and some javascript method, can perform basic calculations.</p><a href='https://olamayorrh.github.io/calculator/calculator.html' className="lnk">View Project</a></div></card>
                     </div>
+
+                    <div className="card">
+                        <card><img src="./images/expenseTracker.png" className="crd"></img>  <div className="detail"><h3>Expense Tracking App</h3><p>An application built with Html, css and Javascript, to keep track of user's budget and expenses</p><a href='https://expense-tracker-chi-umber.vercel.app/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/travelAndTour.png" className="crd"></img>  <div className="detail"><h3>Travel and Tour website</h3><p>A Website built with React and tailwind for users to book flight to their various destinations of choice</p><a href='https://travel-and-tour-six.vercel.app/' className="lnk">View Project</a></div></card>
+                       
+                    </div>
         
                 </div>
 
@@ -258,7 +264,7 @@ const Home = ()=>{
                         <a href="mailto:mayowafolaniyan@gmail.com" target="_blank"><IoIosMail className="imgg"/></a>
                     </div>
                     
-                    <p id="copy">@ mayowa 2024</p>
+                    <p id="copy">@mayowa 2024</p>
                 </div>
            
 
