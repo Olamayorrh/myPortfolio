@@ -72,6 +72,8 @@
     justify-content: space-around;
     padding: 10px;
     border: 0px solid greenyellow;
+    gap:30px;
+    
 }
 
 .imgg{
@@ -145,7 +147,10 @@
     display:flex;
     justify-content:space-between;
     align-items: center;
-    gap:100px;
+    gap:70px;
+    padding: 10px;
+    border: 0px solid red;
+    width:60%;
 
     
     
@@ -270,6 +275,13 @@
     width:100%;
 }
 
+.parent card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 
 #card h3{
     display: flex;
@@ -289,8 +301,8 @@
     justify-content:  center;
     align-items: center;
     
-    border: 0px solid red;
-    margin: 10px; 
+    border: 0px solid yellowgreen;
+    margin: 0px; 
     font-family: "Open Sans", sans-serif;
     font-size: 17px;
     padding: 10px;
@@ -368,13 +380,16 @@
     gap: 20px;
 }
 
-card{
+.porfolio card{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width:100%;
+    min-height: 600px;
+    
     border: 0px solid red;
+    
 }
 
 .portt{
@@ -400,6 +415,7 @@ card{
     border-radius: 10px 10px 0 0;
     margin: 35px;
     margin-bottom: 0px;
+
     
     
 }
@@ -411,15 +427,15 @@ card{
 .detail{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+    justify-content: start;
+    align-items: start;
     width:250px;
-    height: 160px;
+    min-height: 160px;
     
     padding: 20px;
     display: block;
     border: 0px solid red;
-    margin: 10px;
+    margin: 35px;
     margin-top: 0px;
 }
 
@@ -531,6 +547,8 @@ card{
      .social{
         margin: 10px;
        margin-bottom: 5px;
+       border: 0px solid red;
+       display: flex;
      }
 
      .img2{
@@ -660,8 +678,15 @@ card{
         .nav{
             display: flex;
             justify-content: space-around; 
+            align-items: center;
             
             padding: 20px;
+        }
+
+        .nav .btn{
+            width:px;
+            height:25px;
+            padding: 5px;
         }
 
         
@@ -987,6 +1012,33 @@ card{
         
      }
 
-/* @media (max-width:576px){
+@media (min-width:769px){
+    .menus{
+        width:80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border:0px solid red;
+    }
 
-} */
+    .menu{
+        width: 100%;
+        border: 0px solid greenyellow;
+       
+     }
+    .nav{
+        width:100%;
+        border: 0px solid white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    /* .nav .btn{
+        width:20%;
+    } */
+}
+       
+    
+
+  

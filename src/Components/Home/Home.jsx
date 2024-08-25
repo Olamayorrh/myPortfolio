@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import "./Home.css"
 import logo from '../../assets/images/Group.png'
@@ -11,16 +11,22 @@ import git from "../../assets/images/git.svg"
 import typs from "../../assets/images/typescript.png"
 import node from "../../assets/images/nodejs.png"
 import mongo from "../../assets/images/mongo2.png"
+import react from "../../assets/images/react.png"
 import { Link, NavLink } from "react-router-dom";
 import { IoIosMail } from "react-icons/io";
-import { FaGithub, FaLinkedin, FaFacebookSquare } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaStar, FaFacebookSquare, FaMoon } from "react-icons/fa";
 import { FaSquareTwitter } from "react-icons/fa6";
+import { StateContext } from './Context';
+
 
 
 const Home = ()=>{
+    const {toggleDarkMode,darkMode, handleForm, setName, setEmail, setMessage, setNumber} = useContext(StateContext)
+    console.log(darkMode);
+
 
     const [isClicked, setIsclicked] = useState(true);
-    console.log(isClicked);
+    
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
@@ -41,17 +47,20 @@ const Home = ()=>{
           form == '';
       };
 
-    return(
-        <div className="container">
-            <div className="container1" id="home">
+    //   dark mode
+   
 
-                    <div className="info">
+    return(
+        <div className="container dark:text-white ">
+            <div className="container1 dark:bg-black" id="home">
+
+                    <div className="info dark:bg-black dark:text-white dark:flex md:dark:items-start dark:px-[40px] dark:justify-center">
                         <img src={logo} alt="logo" id="logo"></img>
 
                         <h2 className="intra">Hi, I am</h2>
                         <h1 className="name">MAYOWA OLANIYAN</h1> 
-                        <p className="dev">MERN stack Developer</p>
-                        <div className="socials">
+                        <p className="dev dark:text-white">MERN stack Developer</p>
+                        <div className="socials flex">
                             <a href="mailto:mayowafolaniyan@gmail.com" target="_blank"><IoIosMail className="imgg"/></a>
                             <a href="https://github.com/Olamayorrh" target="_blank"><FaGithub className="imgg"/></a>
                              <a href="https://www.linkedin.com/feed/?trk=nav_back_to_linkedin" target="_blank"><FaLinkedin className="imgg"/></a>
@@ -60,9 +69,9 @@ const Home = ()=>{
 
                     </div>
 
-                    <div className="img">
+                    <div className="img dark:border-none">
 
-                        <div className="nav">
+                        <div className="nav w-full lg:flex justify-between lg:justify-center 2xl:justify-around 2xl:gap-[0px]">
 
                             {/* {
                                 isClicked? 
@@ -81,17 +90,17 @@ const Home = ()=>{
                             
                             <button className='logo1'><img src={logo} alt="logo" id="logo1"></img></button>
                             <div className={isClicked ? "menus" : "mobile"} onClick={()=>setIsclicked(true)}>
-                                <p className="menu"><a href='#abb' className="navLink">About me</a></p>
+                                <p className="menu lg:text-[12px] w-full"><a href='#abb' className="">About me</a></p>
                                 <p className="menu"><a href='#ski' className="navLink">Skills</a></p>
                                 <p className="menu"><a href='#port' className="navLink">Portfolio</a></p>
-                                <p className="menu menuc"><a href='#contact' className="navLink">CONTACT ME</a></p>
+                                <p className="menu menuc "><a href='#contact' className="navLink">CONTACT ME</a></p>
                             </div> 
 
                             <button className='hamburger' onClick={()=>setIsclicked(!isClicked)}>
                                 {isClicked ? <img src='./images/menuOpen.png' className='Menu'></img> : <img src='./images/menuClose.png' className='Menu'></img>}
-                              </button>  
+                            </button>  
 
-
+                            <button className='btn w-[80px] h-[30px] mt-2 rounded-2xl flex justify-center items-center border boder-white'onClick={toggleDarkMode}>{darkMode ? <FaStar color="gold"/> : <FaMoon />}</button>
                         </div>
 
 
@@ -105,14 +114,14 @@ const Home = ()=>{
                     </div>
             </div>
 
-            <div className="black">
+            <div className="black dark:bg-black dark:flex dark:flex-col dark:items-start p-3">
                 <p id="black">In the symphony of software development, I harmonize the roles of designer, developer, and maintenance engineer. From the inception of an idea to its perpetuity in the digital realm, my commitment is unwavering.</p> 
                 <p id="black"> As a software developer, I am not merely a coder; I am an orchestrator of digital experiences, a weaver of solutions, and a guardian of the digital frontier.</p>
                 <p id="black"> The odyssey continues, with each line of code and every design element contributing to the ever-evolving tapestry of technology.</p>
             </div>
 
 
-            <div className="abaut" id="abb">
+            <div className="abaut dark:bg-black" id="abb">
 
                 <h3 className="about set">About Me</h3>
                 <p id="myabout">My name is Mayowa Olaniyan I am a passionate and innovative software developer with keen interest in creating impactful solutions through code.<br></br>
@@ -120,14 +129,14 @@ const Home = ()=>{
                 </p>
 
                 <div className="explore"> | Explore | </div>
-                <img src={sepa} alt="separator" id="explore"></img>
+                <img src={sepa} alt="separator" id="explore" className='dark:bg-white p-3'></img>
 
             
 
-                <div id="card">
+                <div id="card" className='dark:bg-black'>
                     <div className="parent">
 
-                            <card className="des des1">
+                            <card className="des des1 ">
                                 <h3>DESIGN</h3>
                                 <p id="myabout"> I am an architect of user experiences, wielding wireframes and design thinking to breathe life into concepts.
                                     I ensure that software not only function seamlessly but also provides an intuitive and delightful journey for <br></br>users. 
@@ -157,11 +166,11 @@ const Home = ()=>{
 
                     </div>
 
-                    <img src={sepa} alt="separator" id="explore"></img>
+                    <img src={sepa} alt="separator" id="explore" className='dark:bg-white p-3'></img>
              </div>
 
 
-             <div className="skill" id="ski">
+             <div className="skill dark:bg-black" id="ski">
                     <h3 className="skills set">SKILLS</h3>
                     <div className='use'><p id="use">USING NOW:</p></div>
 
@@ -175,8 +184,8 @@ const Home = ()=>{
                         <div className="lange"><img src={jsc} ></img>
                             <p>JAVASCRIPT</p>
                         </div>
-                        <div className="lange"><img src={git} ></img>
-                            <p>GIT</p>
+                        <div className="lange w-[120px]"><img src={react} className=''></img>
+                            <p>REACT</p>
                         </div>
                         <div className="lange"><img src={typs} ></img>
                             <p>TYPESCRIPT</p>
@@ -205,33 +214,34 @@ const Home = ()=>{
                 {/* <img src="../../images/css.svg"></img> */}
 
 
-                <div className="portfolio" id="port">
-                    <h3 className=" portt set">PORTFOLIO</h3>
+                <div className="portfolio dark:bg-black" id="port">
+                    <h3 className=" portt set">PROJECTS</h3>
                 
                     
                     <div className="card">
-                        <card><img src="./images/countdown.png" className="crd"></img> <div className="detail"><h3>Countdown Timer</h3><p>Website during a maintenance, counting down to opening date.</p><a href='https://olamayorrh.github.io/countDown/countdownTimer/index.html' className="lnk">View Project</a></div></card>
-                        <card><img src="./images/Qr_Codegenerator.png" className="crd"></img>  <div className="detail"><h3>Qr CodeGenerator</h3><p>Built by consuming qrcode API, using javascrip, html and css for the implementation. </p><a href='https://olamayorrh.github.io/qrCodeGenerator/' className="lnk">View Project</a></div></card>
-                        <card><img src="./images/TodoApp.png" className="crd"></img>  <div className="detail"><h3>TodoApp</h3><p>TodoApp built with typescript to track your daily activities.</p><a href='https://olamayorrh.github.io/my_PortFolio/Documents/todoApp/index.html' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/countdown.png" className="crd dark:border dark:border-white"></img> <div className="detail dark:hover:border-white"><h3 className='font-bold'>Countdown Timer</h3><p>Website during a maintenance, counting down to opening date.</p><a href='https://olamayorrh.github.io/countDown/countdownTimer/index.html' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/Qr_Codegenerator.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Qr CodeGenerator</h3><p>Built by consuming qrcode API, using javascrip, html and css for the implementation. </p><a href='https://olamayorrh.github.io/qrCodeGenerator/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/TodoApp.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>TodoApp</h3 ><p>TodoApp built with typescript to track your daily activities.</p><a href='https://olamayorrh.github.io/my_PortFolio/Documents/todoApp/index.html' className="lnk">View Project</a></div></card>
                     </div>
             
                     <div className="card">
-                        <card><img src="./images/DynamicRoute.png" className="crd"></img>  <div className="detail"><h3>Dynamic Route</h3><p>Consumed an API to display diffent categories of available items and dynamically routing each item based on their id.</p><a href='https://dynamic-route-theta.vercel.app/' className="lnk">View Project</a></div></card>
-                        <card><img src="./images/DisneyClone.png" className="crd"></img>  <div className="detail"><h3>Disney Clone</h3><p>Disney page cloned using REACT components</p><a href='https://disney-page-kohl.vercel.app/' className="lnk">View Project</a></div></card>
-                        <card><img src="./images/calculator.png" className="crd"></img>  <div className="detail"><h3>Basic Calculator</h3><p>Calculator built with html and some javascript method, can perform basic calculations.</p><a href='https://olamayorrh.github.io/calculator/calculator.html' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/DynamicRoute.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Dynamic Route</h3><p>Consumed an API to display diffent categories of available items and dynamically routing each item based on their id.</p><a href='https://dynamic-route-theta.vercel.app/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/DisneyClone.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Disney Clone</h3><p>Disney page cloned using REACT components</p><a href='https://disney-page-kohl.vercel.app/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/calculator.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Basic Calculator</h3><p>Calculator built with html and some javascript method, can perform basic calculations.</p><a href='https://olamayorrh.github.io/calculator/calculator.html' className="lnk">View Project</a></div></card>
                     </div>
 
                     <div className="card">
-                        <card><img src="./images/expenseTracker.png" className="crd"></img>  <div className="detail"><h3>Expense Tracking App</h3><p>An application built with Html, css and Javascript, to keep track of user's budget and expenses</p><a href='https://expense-tracker-chi-umber.vercel.app/' className="lnk">View Project</a></div></card>
-                        <card><img src="./images/travelAndTour.png" className="crd"></img>  <div className="detail"><h3>Travel and Tour website</h3><p>A Website built with React and tailwind for users to book flight to their various destinations of choice</p><a href='https://travel-and-tour-six.vercel.app/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/expenseTracker.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Expense Tracking App</h3><p>An application built with Html, css and Javascript, to keep track of user's budget and expenses</p><a href='https://expense-tracker-chi-umber.vercel.app/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/travelAndTour.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Travel and Tour website</h3><p>A Website built with React and tailwind for users to book flight to their various destinations of choice</p><a href='https://travel-and-tour-six.vercel.app/' className="lnk">View Project</a></div></card>
+                        <card><img src="./images/bookStore.png" className="crd dark:border dark:border-white"></img>  <div className="detail dark:hover:border-white"><h3 className='font-bold'>Online bookstore website</h3><p>A Website built with React and tailwind where users can view all available books and different categories of books as well as add books to cart and drop reviews</p><a href='https://travel-and-tour-six.vercel.app/' className="lnk">View Project</a></div></card>
                        
                     </div>
         
                 </div>
 
 
-                <div className="contact" id="contact">
-                    <h3 className="conct set">CONTACT</h3>
+                <div className="contact dark:bg-black" id="contact">
+                    <h3 className="conct set dark:text-white">CONTACT</h3>
                    
 
 
@@ -244,17 +254,17 @@ const Home = ()=>{
                     <textarea name="message" />
                     <input type="submit" value="Send" />
                     </form> */}
-                    <form ref={form} onSubmit={sendEmail}>
-                       <div> <input type="text" name="user_name" id="uname" placeholder="Enter your name" required></input></div>
-                        <div><input type="text" name="user_email" id="umail" placeholder="Enter your email" required></input></div>
-                        <div><input type="text" name="user_num" id="num"  placeholder="Enter your number" required></input></div>
-                        <div><textarea placeholder="Message" name="message" id="mssg" rows="40px" cols="40px" required></textarea></div>
-                        <button type="submit" id="btn" value="Send">Send Message</button>
+                    <form ref={form} onSubmit={sendEmail} className='p-3 border border-black dark:border-white rounded-xl'>
+                       <div className='mb-2'> <input type="text" name="user_name" id="uname" placeholder="Enter your name" required className='border p-3 text-[20px] rounded border-black dark:border-white'  onChange={(e)=>setName(e.target.value)}></input></div>
+                        <div className='mb-2'><input type="text" name="user_email" id="umail" placeholder="Enter your email" required className='border p-3 text-[20px] rounded border-black dark:border-white'  onChange={(e)=>setEmail(e.target.value)}></input></div>
+                        <div className='mb-2'><input type="text" name="user_num" id="num"  placeholder="Enter your number" required className='border p-3 text-[20px] rounded border-black dark:border-white'  onChange={(e)=>setNumber(e.target.value)}></input></div>
+                        <div className='mb-2'><textarea placeholder="Message" name="message" id="mssg" rows="40px" cols="40px" required className='border p-3 text-[20px] rounded border-black dark:border-white'  onChange={(e)=>setMessage(e.target.value)}></textarea></div>
+                        <button type="submit" id="btn" value="Send" className='dark:bg-white dark:text-black' onClick={handleForm}>Send Message</button>
             
                     </form>
                 </div>
 
-                <div className="footer">
+                <div className="footer ">
                     <p id="bk"><a href='#home'>back to top</a></p>
 
                     <div className="socials social">
@@ -264,7 +274,7 @@ const Home = ()=>{
                         <a href="mailto:mayowafolaniyan@gmail.com" target="_blank"><IoIosMail className="imgg"/></a>
                     </div>
                     
-                    <p id="copy">@mayowa 2024</p>
+                    <p id="copy">&copy;mayowa 2024</p>
                 </div>
            
 
