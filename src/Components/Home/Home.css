@@ -350,11 +350,16 @@
 }
 
 .lange{
-    width:100px;
+    width:60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     border:0px solid red;
+}
+
+.lang p{
+   font-size: 12px;
+
 }
 
 /* my portfolio */

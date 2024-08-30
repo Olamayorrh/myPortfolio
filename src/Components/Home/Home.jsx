@@ -51,7 +51,7 @@ const Home = ()=>{
    
 
     return(
-        <div className="container dark:text-white ">
+        <div className="w-full dark:text-white">
             <div className="container1 dark:bg-black" id="home">
 
                     <div className="info dark:bg-black dark:text-white dark:flex md:dark:items-start dark:px-[40px] dark:justify-center">
@@ -90,7 +90,7 @@ const Home = ()=>{
                             
                             <button className='logo1'><img src={logo} alt="logo" id="logo1"></img></button>
                             <div className={isClicked ? "menus" : "mobile"} onClick={()=>setIsclicked(true)}>
-                                <p className="menu lg:text-[12px] w-full"><a href='#abb' className="">About me</a></p>
+                                <p className="menu"><a href='#abb' className="navLink">About me</a></p>
                                 <p className="menu"><a href='#ski' className="navLink">Skills</a></p>
                                 <p className="menu"><a href='#port' className="navLink">Portfolio</a></p>
                                 <p className="menu menuc "><a href='#contact' className="navLink">CONTACT ME</a></p>
@@ -104,9 +104,9 @@ const Home = ()=>{
                         </div>
 
 
-                        <div className="pix">
+                        <div className="pix w-[20%} h-[400px]">
                              
-                            <img src={image} alt="mypix" id="img1"></img>
+                            <img src={image} alt="mypix" id="img1" className=' '></img>
                         
                         </div>
 
@@ -184,7 +184,7 @@ const Home = ()=>{
                         <div className="lange"><img src={jsc} ></img>
                             <p>JAVASCRIPT</p>
                         </div>
-                        <div className="lange w-[120px]"><img src={react} className=''></img>
+                        <div className="lange w-[80px]"><img src={react} className=''></img>
                             <p>REACT</p>
                         </div>
                         <div className="lange"><img src={typs} ></img>
