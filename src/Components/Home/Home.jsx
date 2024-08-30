@@ -93,7 +93,7 @@ const Home = ()=>{
                                 <p className="menu"><a href='#abb' className="navLink">About me</a></p>
                                 <p className="menu"><a href='#ski' className="navLink">Skills</a></p>
                                 <p className="menu"><a href='#port' className="navLink">Portfolio</a></p>
-                                <p className="menu menuc "><a href='#contact' className="navLink">CONTACT ME</a></p>
+                                <p className="menu menuc flex justify-center"><a href='#contact' className="navLink">CONTACT ME</a></p>
                             </div> 
 
                             <button className='hamburger' onClick={()=>setIsclicked(!isClicked)}>

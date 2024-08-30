@@ -178,11 +178,14 @@
     
 }
 .menuc{
-    border: 0px solid white;
+    
     padding: 5px;
     border-radius: 10px;
     background-color:white;
-    font-size: 12px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    font-size: 14px;
 }
 
 .menuc:hover{
